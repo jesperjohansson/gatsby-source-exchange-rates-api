@@ -1,10 +1,7 @@
 const fetch = require('node-fetch')
 const qs = require('querystring')
 
-function getIdentifierName(data = {}) {
-  const base = data.base || 'no-base'
-  const date = data.date || 'no-date'
-
+function getIdentifierName(base = 'no-base', date = 'no-date') {
   return `exchange-rates-api-${base}-${date}`
 }
 
@@ -17,19 +14,35 @@ exports.sourceNodes = (
   const { endpoint = 'latest', query = {} } = configOptions
   const apiOptions = qs.stringify({ ...query })
 
+  function createNode(properties) {
+    return actions.createNode({
+      ...properties,
+      id: createNodeId(getIdentifierName(query.base, properties.date)),
+      parent: null,
+      children: [],
+      internal: {
+        type: 'ExchangeRates',
+        content: JSON.stringify(properties),
+        contentDigest: createContentDigest(properties),
+      },
+    })
+  }
+
   return fetch(`https://api.exchangeratesapi.io/${endpoint}?${apiOptions}`)
     .then(response => response.json())
     .then((data) => {
-      actions.createNode({
-        ...data,
-        id: createNodeId(getIdentifierName(data)),
-        parent: null,
-        children: [],
-        internal: {
-          type: 'ExchangeRates',
-          content: JSON.stringify(data),
-          contentDigest: createContentDigest(data),
-        },
+      if (endpoint === 'history') {
+        return Object.entries(data.rates).forEach(([date, rate]) =>
+          createNode({
+            ...rate,
+            date,
+          }),
+        )
+      }
+
+      return createNode({
+        ...data.rates,
+        date: data.date,
       })
     })
 }
