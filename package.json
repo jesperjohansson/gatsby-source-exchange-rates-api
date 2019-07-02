@@ -4,6 +4,10 @@
     "name": "Jesper Johansson",
     "url": "https://github.com/jesperjohansson"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesperjohansson/gatsby-source-exchange-rates-api.git"
+  },
   "version": "1.0.0",
   "main": "gatsby-node.js",
   "license": "MIT",
