@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/jesperjohansson/gatsby-source-exchange-rates-api.git"
   },
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "gatsby-node.js",
   "license": "MIT",
   "eslintConfig": {
