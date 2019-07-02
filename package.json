@@ -1,0 +1,26 @@
+{
+  "name": "gatsby-source-exchange-rates-api",
+  "author": {
+    "name": "Jesper Johansson",
+    "url": "https://github.com/jesperjohansson"
+  },
+  "version": "1.0.0",
+  "main": "gatsby-node.js",
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "eslint-config-jesper"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-jesper": "^2.1.0",
+    "prettier": "^1.18.2"
+  }
+}
