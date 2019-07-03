@@ -12,11 +12,11 @@ Add the plugin to your `gatsby-config.js` file
 ```javascript
 // gatsby-config.js
 {
-	plugins: [
-		{
-			resolve: 'gatsby-source-exchange-rates-api',
-		}
-	]
+  plugins: [
+    {
+      resolve: 'gatsby-source-exchange-rates-api',
+    }
+  ]
 }
 ```
 
@@ -28,16 +28,16 @@ Exchange Rates API documentation: [(Github)](https://github.com/exchangeratesapi
 ```javascript
 // gatsby-config.js
 {
-	resolve: 'gatsby-source-exchange-rates-api',
-	options: {
-		endpoint: 'history', // (optional) default is "latest"
-		query: { // (optional)
-			base: 'SEK',
-			symbols: 'EUR,USD',
-			start_at: '2019-02-01',
-			end_at: '2019-02-03',
-		},
-	}
+  resolve: 'gatsby-source-exchange-rates-api',
+  options: {
+    endpoint: 'history', // (optional) default is "latest"
+    query: { // (optional)
+      base: 'SEK',
+      symbols: 'EUR,USD',
+      start_at: '2019-02-01',
+      end_at: '2019-02-03',
+    },
+  }
 }
 ```
 
@@ -47,13 +47,13 @@ If you use the default endpoint `latest` you will get one node with the latest r
 ```javascript
 // Get the latest rates
 useStaticQuery(graphql`
-	query {
-		exchangeRates {
-			id
-			date
-			USD
-		}
-	}
+  query {
+    exchangeRates {
+      id
+      date
+      USD
+    }
+  }
 `)
 ```
 
@@ -61,18 +61,18 @@ useStaticQuery(graphql`
 ```javascript
 // Get an array of history rates
 useStaticQuery(graphql`
-	query {
-		allExchangeRates {
-			edges {
-				node {
-					id
-					date
-					USD
-					EUR
-				}
-			}
-		}
-	}
+  query {
+    allExchangeRates {
+      edges {
+        node {
+          id
+          date
+          USD
+          EUR
+        }
+      }
+    }
+  }
 `)
 ```
 
