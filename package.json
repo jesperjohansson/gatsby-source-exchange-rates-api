@@ -14,7 +14,8 @@
     "gatsby-source-plugin",
     "exchange",
     "rates",
-    "api"
+    "api",
+    "exchangeratesapi"
   ],
   "version": "2.0.0",
   "main": "index.js",
