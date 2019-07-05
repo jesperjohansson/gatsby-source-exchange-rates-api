@@ -1,5 +1,6 @@
 {
   "name": "gatsby-source-exchange-rates-api",
+  "description": "A Gatsby source plugin for retrieving data from the exchangeratesapi.io API",
   "author": {
     "name": "Jesper Johansson",
     "url": "https://github.com/jesperjohansson"
