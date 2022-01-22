@@ -30,7 +30,7 @@
     "trailingComma": "all"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^3.1.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
